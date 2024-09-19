@@ -254,7 +254,7 @@
     <div class="row">
         <div class="col-lg-1 col-xl-1 "> </div>
         <div class="col-lg-3 col-xl-3 ">
-            <div class="card-box text-center">
+            <div class="card-box text-center ">
                 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
                 <h4 class="mb-0">{{$userName }}</h4>
                 <h4 class="mb-0"></h4>
@@ -293,6 +293,58 @@
                     </li>
                 </ul>
             </div>
+            <div class="text-center">
+                <h2>Work Time</h2>
+                <table class="table table-bordered table-hover table-sm">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>Day</th>
+                        <th>Start</th>
+                        <th>End</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>8:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>8:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>8:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>8:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>8:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>8:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>8:00</td>
+                        <td>17:00</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
 
         </div>
         <div class="col-lg-7 col-xl-7 ">
