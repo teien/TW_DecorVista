@@ -7,7 +7,7 @@
     <style type="text/css">
         body{
             background-color: #f8f9fa;
-            margin-top: 100px ;
+            margin-top: 80px ;
         }
 
         .card {

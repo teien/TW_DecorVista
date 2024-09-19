@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\InteriorDesigner;
 use Illuminate\Support\Facades\Auth;
 use App\Models\DesignerProfile;
 use Illuminate\Http\Request;
@@ -47,14 +48,26 @@ class DesignerProfileController extends Controller
             return redirect()->route('login')->with('error', 'You need to be logged in to update your profile.');
         }
 
-        $profile = DesignerProfile::where('designer_id', $user->id)->first();
+        // Tìm InteriorDesigner của người dùng hiện tại
+        $interiorDesigner = InteriorDesigner::where('user_id', $user->id)->first();
+
+        if (!$interiorDesigner) {
+            return redirect()->back()->with('error', 'No designer profile found for this user.');
+        }
+
+        // Tìm hoặc tạo mới DesignerProfile cho interior designer
+        $profile = DesignerProfile::where('designer_id', $interiorDesigner->designer_id)->first();
 
         if (!$profile) {
             $profile = new DesignerProfile();
-            $profile->designer_id = $user->id;
+            $profile->designer_id = $interiorDesigner->designer_id;
         }
+
+        // Cập nhật dữ liệu hồ sơ
         $profile->fill($validatedData);
         $profile->save();
+
         return redirect()->back()->with('success', 'Profile updated successfully');
     }
+
 }

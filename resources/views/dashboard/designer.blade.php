@@ -8,6 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
 
+
+        body {
+            margin-top: 80px;
+        }
         .card-box {
             background-color: #fff;
             background-clip: border-box;
@@ -349,9 +353,8 @@
         </div>
         <div class="col-lg-7 col-xl-7 ">
             <div class="card-box">
-                <ul class="nav nav-pills navtab-bg">
 
-                    @if (Auth::user()->role == 'InteriorDesigner' && Auth::user()->id == ($profile->designer_id ?? 0) )
+                <ul class="nav nav-pills navtab-bg">
                         <li class="nav-item">
                             <a href="#settings" data-toggle="tab" aria-expanded="true" class="nav-link ml-0 active">
                                 <i class="mdi mdi-settings-outline mr-1"></i>Settings
@@ -362,8 +365,14 @@
                                 <i class="mdi mdi-settings-outline mr-1"></i>Todo
                             </a>
                         </li>
-                    @endif
+                        <li class="nav-item">
+                            <a href="#project" data-toggle="tab" aria-expanded="false" class="nav-link">
+                                <i class="mdi mdi-settings-outline mr-1"></i>Project
+                            </a>
+                        </li>
+
                 </ul>
+                @if (Auth::user()->role == 'InteriorDesigner' && Auth::user()->interiorDesigner->designer_id == ($profile->designer_id ?? 0) )
                 <div class="tab-content">
                     <div class="tab-pane show active" id="settings">
                         <form method="POST" action="{{ route('update.profile') }}">
@@ -501,10 +510,14 @@
                     </div>
                     <div class="tab-pane" id="todo">
                         @include('dashboard.interior_design.todo')
-
+                    </div>
+                    @endif
+                    <div class="tab-pane" id="project">
+                       <h1>111111</h1>
                     </div>
                     <div class="col-lg-1 col-xl-1 "> </div>
                 </div>
+
             </div>
         </div>
     </div>

@@ -102,7 +102,7 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
         Auth::login($user);
-        return redirect()->route('dashboard.designer', ['id' => $user->id]);
+        return redirect()->route('dashboard.designer', ['id' => $interiorDesigner->designer_id]);
 
     }
 }
