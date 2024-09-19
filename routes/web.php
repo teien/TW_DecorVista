@@ -22,4 +22,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// check giao diẹn
+Route::view('/contact', 'dashboard.homeowner.pages.contact')->name('contact');
+
+
+
 require __DIR__.'/auth.php';
