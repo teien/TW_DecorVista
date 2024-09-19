@@ -31,36 +31,30 @@ class DesignerProfileController extends Controller
             'last_name' => 'required|string|max:255',
             'bio' => 'nullable|string',
             'company_name' => 'nullable|string|max:255',
-            'website_url' => 'nullable|url|max:255',
-            'fb_url' => 'nullable|url|max:255',
+            'website_url' => 'nullable|string|max:255',
+            'fb_url' => 'nullable|string|max:255',
             'twitter_url' => 'nullable|string|max:255',
-            'instagram' => 'nullable|url|max:255',
-            'linkedin' => 'nullable|url|max:255',
+            'instagram' => 'nullable|string|max:255',
+            'linkedin' => 'nullable|string|max:255',
             'skype' => 'nullable|string|max:255',
-            'profile_image_url' => 'nullable|url|max:255',
+            'profile_image_url' => 'nullable|string|max:255',
             'contact_number' => 'nullable|string|max:15',
             'contact_email' => 'nullable|email|max:255',
         ]);
-
 
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('login')->with('error', 'You need to be logged in to update your profile.');
         }
 
-        // Cập nhật hồ sơ nhà thiết kế
         $profile = DesignerProfile::where('designer_id', $user->id)->first();
 
         if (!$profile) {
             $profile = new DesignerProfile();
             $profile->designer_id = $user->id;
         }
-
-        // Cập nhật thông tin hồ sơ
         $profile->fill($validatedData);
         $profile->save();
-
-        // Chuyển hướng lại với thông báo thành công
         return redirect()->back()->with('success', 'Profile updated successfully');
     }
 }

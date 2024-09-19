@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\DesignerProfile;
 use App\Models\InteriorDesigner;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -31,7 +32,7 @@ class RegisteredUserController extends Controller
      */
     public function registerHomeowner(Request $request)
     {
-        // Validate và xử lý form Homeowner
+
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -39,13 +40,13 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        // Tạo user mới với vai trò Homeowner
+
         $user = User::create([
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'phone' => $validatedData['phone'],
             'password' => bcrypt($validatedData['password']),
-            'role' => 'Homeowner',  // Đặt vai trò là Homeowner
+            'role' => 'Homeowner',
         ]);
 
 
@@ -72,15 +73,32 @@ class RegisteredUserController extends Controller
             'email' => $validatedData['email'],
             'phone' => $validatedData['phone'],
             'password' => bcrypt($validatedData['password']),
-            'role' => 'InteriorDesigner',  // Đặt vai trò là Interior Designer
+            'role' => 'InteriorDesigner',
         ]);
-        // Tạo Interior Designer mới
+
         $interiorDesigner = InteriorDesigner::create([
             'user_id' => $user->id,
             'specialization' => $validatedData['specialization'],
             'portfolio' => $validatedData['portfolio_url'],
             'years_of_experience' => $validatedData['years_of_experience'],
         ]);
+        DesignerProfile::create([
+            'designer_id' => $interiorDesigner->designer_id,
+            'first_name' => '',
+            'last_name' => '',
+            'bio' => '',
+            'company_name' => '',
+            'website_url' => '',
+            'fb_url' => '',
+            'twitter_url' => '',
+            'instagram' => '',
+            'linkedin' => '',
+            'skype' => '',
+            'profile_image_url' => '',
+            'contact_number' => '',
+            'contact_email' => '',
+        ]);
+
 
         event(new Registered($user));
         Auth::login($user);

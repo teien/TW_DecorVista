@@ -12,7 +12,9 @@ class InteriorDesigner extends Authenticatable
 
     // Tên bảng tương ứng trong cơ sở dữ liệu
     protected $table = 'interior_designers';
+    protected $primaryKey = 'designer_id';
     protected $fillable = [
+        'designer_id',
         'user_id',
         'specialization',
         'portfolio',

@@ -42,4 +42,6 @@ class DesignerProfile extends Model
         return $this->belongsTo(User::class, 'designer_id', 'id');
     }
 
+
+
 }
