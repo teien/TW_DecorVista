@@ -24,6 +24,10 @@ class InteriorDesigner extends Authenticatable
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function profile()
+    {
+        return $this->hasOne(DesignerProfile::class, 'designer_id');
+    }
 
     // Các quan hệ khác nếu có thể được thêm ở đây
 }

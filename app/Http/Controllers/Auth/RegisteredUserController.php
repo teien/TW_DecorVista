@@ -74,19 +74,17 @@ class RegisteredUserController extends Controller
             'password' => bcrypt($validatedData['password']),
             'role' => 'InteriorDesigner',  // Đặt vai trò là Interior Designer
         ]);
-
-
-
-
-        $user = InteriorDesigner::create([
+        // Tạo Interior Designer mới
+        $interiorDesigner = InteriorDesigner::create([
+            'user_id' => $user->id,
             'specialization' => $validatedData['specialization'],
             'portfolio' => $validatedData['portfolio_url'],
             'years_of_experience' => $validatedData['years_of_experience'],
-            'user_id' => $user->id,
         ]);
 
         event(new Registered($user));
         Auth::login($user);
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard.designer', ['id' => $user->id]);
+
     }
 }
