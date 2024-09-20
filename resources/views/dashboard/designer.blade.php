@@ -250,10 +250,12 @@
             }
         }
     </style>
+
 </head>
 <body>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
 <div class="container-fluid ">
     <div class="row">
         <div class="col-lg-1 col-xl-1 "> </div>
@@ -372,7 +374,7 @@
                         </li>
 
                 </ul>
-                @if ( Auth::user()->interiorDesigner->designer_id == ($profile->designer_id ?? 0) )
+                @if ( (Auth::user()->interiorDesigner->designer_id ?? '')== ($profile->designer_id ?? 0) )
                 <div class="tab-content">
                     <div class="tab-pane" id="settings" href="#setting">
                         <form method="POST" action="{{ route('update.profile') }}">

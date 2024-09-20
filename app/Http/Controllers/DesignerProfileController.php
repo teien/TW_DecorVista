@@ -17,7 +17,12 @@ class DesignerProfileController extends Controller
         $userName= $designerProfile->user->name ?? 'unknown';
 
         $designer = Auth::user()->interiorDesigner;
-        $consultations = Consultation::where('designer_id', $designer->designer_id)->get();
+        if (!$designerProfile) {
+            return redirect()->back()->with('error', 'Designer profile not found');
+        }
+        $consultations = Consultation::where('designer_id', optional($designer)->designer_id)->get();
+
+
         return view('dashboard.designer', [
             'profile' => $designerProfile,
             'userName' => $userName,
