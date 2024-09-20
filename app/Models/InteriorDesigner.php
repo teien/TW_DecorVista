@@ -17,7 +17,6 @@ class InteriorDesigner extends Authenticatable
         'designer_id',
         'user_id',
         'specialization',
-        'portfolio',
         'years_of_experience',
     ];
 
@@ -31,5 +30,8 @@ class InteriorDesigner extends Authenticatable
         return $this->hasOne(DesignerProfile::class, 'designer_id');
     }
 
-    // Các quan hệ khác nếu có thể được thêm ở đây
+    public function consultations(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Consultation::class, 'designer_id');
+    }
 }

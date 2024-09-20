@@ -90,14 +90,6 @@
             <x-text-input id="designer_specialization" class="block mt-1 w-full" type="text" name="specialization" :value="old('specialization')" required autocomplete="off" />
             <x-input-error :messages="$errors->get('specialization')" class="mt-2" />
         </div>
-
-        <!-- Portfolio URL -->
-        <div class="mt-4">
-            <x-input-label for="designer_portfolio_url" :value="__('Portfolio URL')" />
-            <x-text-input id="designer_portfolio_url" class="block mt-1 w-full" type="url" name="portfolio_url" :value="old('portfolio_url')" required autocomplete="off" />
-            <x-input-error :messages="$errors->get('portfolio_url')" class="mt-2" />
-        </div>
-
         <!-- Years of Experience -->
         <div class="mt-4">
             <x-input-label for="designer_years_of_experience" :value="__('Years of Experience')" />

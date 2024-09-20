@@ -61,7 +61,6 @@ class RegisteredUserController extends Controller
         // Validate và xử lý form Interior Designer
         $validatedData = $request->validate([
             'specialization' => 'required|string|max:255',
-            'portfolio_url' => 'required|url',
             'years_of_experience' => 'required|integer|min:0',
             'password' => 'required|string|min:8|confirmed',
             'name' => 'required|string|max:255',
@@ -79,7 +78,6 @@ class RegisteredUserController extends Controller
         $interiorDesigner = InteriorDesigner::create([
             'user_id' => $user->id,
             'specialization' => $validatedData['specialization'],
-            'portfolio' => $validatedData['portfolio_url'],
             'years_of_experience' => $validatedData['years_of_experience'],
         ]);
         DesignerProfile::create([

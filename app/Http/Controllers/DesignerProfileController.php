@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Consultation;
 use App\Models\InteriorDesigner;
 use Illuminate\Support\Facades\Auth;
 use App\Models\DesignerProfile;
@@ -15,10 +16,12 @@ class DesignerProfileController extends Controller
 
         $userName= $designerProfile->user->name ?? 'unknown';
 
-
+        $designer = Auth::user()->interiorDesigner;
+        $consultations = Consultation::where('designer_id', $designer->designer_id)->get();
         return view('dashboard.designer', [
             'profile' => $designerProfile,
             'userName' => $userName,
+            'consultations' => $consultations
         ]);
     }
 
@@ -55,15 +58,7 @@ class DesignerProfileController extends Controller
             return redirect()->back()->with('error', 'No designer profile found for this user.');
         }
 
-        // Tìm hoặc tạo mới DesignerProfile cho interior designer
         $profile = DesignerProfile::where('designer_id', $interiorDesigner->designer_id)->first();
-
-        if (!$profile) {
-            $profile = new DesignerProfile();
-            $profile->designer_id = $interiorDesigner->designer_id;
-        }
-
-        // Cập nhật dữ liệu hồ sơ
         $profile->fill($validatedData);
         $profile->save();
 

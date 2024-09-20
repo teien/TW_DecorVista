@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id('designer_id');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('specialization', 255);
-            $table->string('portfolio', 2048)->default('');
-
             $table->integer('years_of_experience')->default(0);
             $table->timestamps();
         });

@@ -354,7 +354,7 @@
         <div class="col-lg-7 col-xl-7 ">
             <div class="card-box">
 
-                <ul class="nav nav-pills navtab-bg">
+                <ul class="nav nav-pills navtab-bg nav-tabs" id="mytab">
                         <li class="nav-item">
                             <a href="#settings" data-toggle="tab" aria-expanded="true" class="nav-link ml-0 active">
                                 <i class="mdi mdi-settings-outline mr-1"></i>Settings
@@ -372,9 +372,9 @@
                         </li>
 
                 </ul>
-                @if (Auth::user()->role == 'InteriorDesigner' && Auth::user()->interiorDesigner->designer_id == ($profile->designer_id ?? 0) )
+                @if ( Auth::user()->interiorDesigner->designer_id == ($profile->designer_id ?? 0) )
                 <div class="tab-content">
-                    <div class="tab-pane show active" id="settings">
+                    <div class="tab-pane" id="settings" href="#setting">
                         <form method="POST" action="{{ route('update.profile') }}">
                             @csrf
                             @method('PUT')
@@ -508,12 +508,12 @@
 
 
                     </div>
-                    <div class="tab-pane" id="todo">
+                    <div class="tab-pane" id="todo" href="#todo">
                         @include('dashboard.interior_design.todo')
                     </div>
                     @endif
-                    <div class="tab-pane" id="project">
-                       <h1>111111</h1>
+                    <div class="tab-pane" id="project" href="#project">
+
                     </div>
                     <div class="col-lg-1 col-xl-1 "> </div>
                 </div>
@@ -525,6 +525,45 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
+
+</script>
+<script>
+    $(document).ready(function() {
+        // Lấy trạng thái tab từ local storage
+        var activeTab = localStorage.getItem('activeTab');
+
+        // Nếu có tab đang lưu, hiển thị tab đó và ẩn các tab khác
+        if (activeTab) {
+            $('.nav-tabs .nav-link').removeClass('active');
+            $('.tab-pane').removeClass('show active');
+
+            // Kích hoạt tab đã lưu
+            $('a[href="' + activeTab + '"]').addClass('active');
+            $(activeTab).addClass('show active');
+        } else {
+            // Mặc định mở tab Settings nếu không có tab lưu
+            $('.nav-tabs .nav-link[href="#settings"]').addClass('active');
+            $('#settings').addClass('show active');
+        }
+
+        // Lưu trạng thái tab khi chuyển đổi
+        $('a[data-toggle="tab"]').on('click', function() {
+            var target = $(this).attr('href');
+
+            // Xóa trạng thái active và show cho tất cả các tab
+            $('.nav-tabs .nav-link').removeClass('active');
+            $('.tab-pane').removeClass('show active');
+
+            // Kích hoạt tab hiện tại
+            $(this).addClass('active');
+            $(target).addClass('show active');
+
+            // Lưu trạng thái tab vào localStorage
+            localStorage.setItem('activeTab', target);
+        });
+
+    });
+
 
 </script>
 </body>
