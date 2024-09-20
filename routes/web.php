@@ -12,6 +12,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('', function () {
+    return view('dashboard.homeowner');
+})->name('welcome');
 
 Route::put('/update-profile', [DesignerProfileController::class, 'update'])->middleware(['auth', 'verified'])->name('update.profile');
 Route::get('/dashboard/designer/{id}', [DesignerProfileController::class, 'show'])

@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Dashboard') }}</title>
-
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.ico') }}" rel="icon" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Libraries Stylesheets -->
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
@@ -36,7 +36,7 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-        @include('layouts.navigation')
+
 
         <!-- Page Heading -->
         @isset($header)
@@ -63,7 +63,7 @@
     <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('lib/isotope/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
-    
+
     <!-- js homeowner -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
