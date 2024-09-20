@@ -46,8 +46,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="my-degisn">My Designs</a></li>
-                                <li><a class="dropdown-item" href="#">Recent Activities</a></li>
-                                <li><a class="dropdown-item" href="#">Notifications</a></li>
+                                <li><a class="dropdown-item" href="recent-activities">Recent Activities</a></li>
+                                <li><a class="dropdown-item" href="notifications">Notifications</a></li>
                             </ul>
                         </li>
                         <!-- Info Dropdown -->
@@ -72,7 +72,7 @@
 
                 <div class="col">
                     <!-- Search Bar -->
-                    <div class="row text-center d-flex align-items-center justify-content-center">
+                    <div class="row text-center d-flex align-items-center justify-content-center mt-1">
                         <div class="col-md-11">
                             <form action="#" class="search d-flex">
                                 <button class="search__button">
