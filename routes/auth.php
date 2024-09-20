@@ -18,7 +18,7 @@ Route::middleware('guest')->group(function () {
     Route::post('register', [RegisteredUserController::class, 'store']);
     Route::post('/registerHomeowner', [RegisteredUserController::class, 'registerHomeowner'])->name('registerHomeowner');
 
-// Route cho đăng ký Interior Designer
+
     Route::post('/registerDesigner', [RegisteredUserController::class, 'registerDesigner'])->name('registerDesigner');
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
@@ -62,5 +62,7 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
     Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
+    //tao route login cho admin khi mat khau va pass la admin admin
+
 });
 

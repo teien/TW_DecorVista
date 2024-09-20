@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\DesignerProfileController;
 use App\Http\Controllers\ProfileController;
@@ -31,6 +33,17 @@ Route::middleware(['auth', 'role:InteriorDesigner'])->group(function() {
     Route::post('/dashboard/designer/{id}/consultation/complete', [ConsultationController::class, 'complete'])->name('designer.consultations.complete');
 
 });
+//check role admin thi moi vao duoc
+Route::middleware(['auth', 'role:Admin'])->group(function() {
+    Route::get('/admin', [UserController::class, 'view'])->name('dashboard.admin');
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+    Route::get('/admin/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+    Route::put('/admin/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
+    Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
+    Route::put('/admin/users/{id}/restore', [UserController::class, 'restore'])->name('admin.users.restore');
+});
+
+
 
 // check giao diẹn info
 Route::view('/contact', 'dashboard.homeowner.pages.info.contact');

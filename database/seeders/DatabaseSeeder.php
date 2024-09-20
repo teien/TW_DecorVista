@@ -14,17 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
          User::factory(10)->create();
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-        $this->call(ConsultationSeeder::class);
-
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'phone' => '0123456789',
+            'password' => bcrypt('admin'),
+            'role' => 'Admin',
+        ]);
 
     }
 }

@@ -103,4 +103,30 @@ class RegisteredUserController extends Controller
         return redirect()->route('dashboard.designer', ['id' => $interiorDesigner->designer_id]);
 
     }
+    // adminregister
+    public function registerAdmin(Request $request)
+    {
+        // Validate và xử lý form Interior Designer
+        $validatedData = $request->validate([
+            'password' => 'required|string|min:8|confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required|string|max:15',
+        ]);
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'phone' => $validatedData['phone'],
+            'password' => bcrypt($validatedData['password']),
+            'role' => 'Admin',
+        ]);
+
+        event(new Registered($user));
+        Auth::login($user);
+        return redirect()->route('dashboard');
+
+    }
+
+
+
 }

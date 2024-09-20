@@ -26,6 +26,10 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+        if ($request->email == 'admin@gmail.com' && $request->password == 'admin') {
+            return redirect()->route('dashboard.admin');
+        }
+        
         $request->session()->regenerate();
 
         return redirect()->intended(route('dashboard', absolute: false));
@@ -44,4 +48,8 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+
+
+
 }
