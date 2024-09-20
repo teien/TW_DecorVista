@@ -1,6 +1,9 @@
+@extends('dashboard.homeowner.layouts.app')
+
+@section('content')
+
 <!-- resources/views/dashboard/homeowner/pages/about.blade.php -->
 
-@include('dashboard.homeowner.header')
 
 <!-- About Start -->
 <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
@@ -48,5 +51,4 @@
     </div>
 </div>
 <!-- About End -->
-
-@include('dashboard.homeowner.footer')
+@endsection

@@ -1,4 +1,4 @@
-<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+<div class="container bg-light overflow-hidden my-5 px-lg-0">
     <div class="container feature px-lg-0">
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -11,7 +11,7 @@
                         <div class="col-6">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                                    <i class="fa fa-check fa-2x text-primary"></i>
+                                    <i class="fa fa-check fa-2x "></i>
                                 </div>
                                 <div class="ms-4">
                                     <p class="mb-2">Quality</p>
@@ -22,7 +22,7 @@
                         <div class="col-6">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                                    <i class="fa fa-user-check fa-2x text-primary"></i>
+                                    <i class="fa fa-user-check fa-2x "></i>
                                 </div>
                                 <div class="ms-4">
                                     <p class="mb-2">Creative</p>
@@ -33,7 +33,7 @@
                         <div class="col-6">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                                    <i class="fa fa-drafting-compass fa-2x text-primary"></i>
+                                    <i class="fa fa-drafting-compass fa-2x "></i>
                                 </div>
                                 <div class="ms-4">
                                     <p class="mb-2">Free</p>
@@ -44,7 +44,7 @@
                         <div class="col-6">
                             <div class="d-flex align-items-center">
                                 <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white" style="width: 60px; height: 60px;">
-                                    <i class="fa fa-headphones fa-2x text-primary"></i>
+                                    <i class="fa fa-headphones fa-2x "></i>
                                 </div>
                                 <div class="ms-4">
                                     <p class="mb-2">Customer</p>

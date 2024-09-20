@@ -1,4 +1,4 @@
-<div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+<div class="container bg-light overflow-hidden my-5 px-lg-0">
     <div class="container quote px-lg-0">
         <div class="row g-0 mx-lg-0">
             <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
@@ -35,7 +35,7 @@
                                 <textarea class="form-control border-0" placeholder="Special Note"></textarea>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                <button class="btn btn-dark w-100 py-3" type="submit">Submit</button>
                             </div>
                         </div>
                     </form>

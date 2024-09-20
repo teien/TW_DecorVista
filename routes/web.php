@@ -22,8 +22,27 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// check giao diẹn
-Route::view('/contact', 'dashboard.homeowner.pages.contact')->name('contact');
+// check giao diẹn info
+Route::view('/contact', 'dashboard.homeowner.pages.info.contact');
+Route::view('/about', 'dashboard.homeowner.pages.info.about');
+
+
+// check giao diẹn room
+Route::view('/living-room', 'dashboard.homeowner.pages.categories.livingroom');
+Route::view('/bed-room', 'dashboard.homeowner.pages.categories.bedroom');
+Route::view('/kitchen', 'dashboard.homeowner.pages.categories.kitchen');
+Route::view('/bath-room', 'dashboard.homeowner.pages.categories.bathroom');
+Route::view('/office', 'dashboard.homeowner.pages.categories.office');
+Route::view('/outdoor', 'dashboard.homeowner.pages.categories.outdoor');
+
+
+// check giao diẹn room
+Route::view('/furniture', 'dashboard.homeowner.pages.themesstyles.furniture');
+Route::view('/lighting', 'dashboard.homeowner.pages.themesstyles.lighting');
+Route::view('/decor', 'dashboard.homeowner.pages.themesstyles.decor');
+Route::view('/rugs-carpets', 'dashboard.homeowner.pages.themesstyles.rugs-carpets');
+Route::view('/art', 'dashboard.homeowner.pages.themesstyles.art');
+Route::view('/curtains-blinds', 'dashboard.homeowner.pages.themesstyles.curtains-blinds');
 
 
 

@@ -1,5 +1,8 @@
-<!-- resources/views/dashboard/homeowner/pages/contact.blade.php -->
-@include('dashboard.homeowner.header')
+
+@extends('dashboard.homeowner.layouts.app')
+
+@section('content')
+    <!-- resources/views/dashboard/homeowner/pages/contact.blade.php -->
 
 <!-- Contact Start -->
 <div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 6rem 0;">
@@ -57,5 +60,4 @@
 </div>
 <!-- Contact End -->
 </div>
-
-@include('dashboard.homeowner.footer')
+@endsection
