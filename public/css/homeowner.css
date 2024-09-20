@@ -25,12 +25,30 @@
     z-index: 99;
 }
 
+.design-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+.design-card:hover {
+    transform: scale(1.02);
+}
+.design-card img {
+    width: 100%;
+    height: auto;
+}
+.design-actions button {
+    margin: 0 5px;
+}
+
 .search {
     flex: 0 0 90%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* Đặt relative để làm gốc cho vị trí của icon */
+    position: relative; 
 }
 
 .search__input {
@@ -41,7 +59,7 @@
     border: none;
     padding: 14px 42px 14px 42px; /* Đặt đủ khoảng trống cho icon */
     border-radius: 1000px;
-    width: 50%;
+    width: 80%;
     transition: all 0.2s;
 }
 
@@ -61,12 +79,12 @@
 .search__button {
     border: none;
     background-color: transparent;
-    position: absolute; /* Icon ở vị trí tuyệt đối */
-    left: 105px; /* Đặt vị trí icon bên trong input */
+    position: absolute;
+    left: 285px;
     top: 50%;
-    transform: translateY(-65%); /* Canh giữa theo chiều dọc */
+    transform: translateY(-65%); 
     cursor: pointer;
-    z-index: 1; /* Đảm bảo icon nằm trên input */
+    z-index: 1; 
 }
 
 .search__icon {

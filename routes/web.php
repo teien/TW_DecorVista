@@ -45,5 +45,6 @@ Route::view('/art', 'dashboard.homeowner.pages.themesstyles.art');
 Route::view('/curtains-blinds', 'dashboard.homeowner.pages.themesstyles.curtains-blinds');
 
 
+Route::view('/shopping-cart', 'dashboard.homeowner.pages.use.shoppingcart');
 
 require __DIR__.'/auth.php';
