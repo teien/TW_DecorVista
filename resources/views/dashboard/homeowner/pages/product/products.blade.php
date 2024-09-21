@@ -2,7 +2,6 @@
 
 @section('content')
 
-<!-- livingroom.blade -->
 <div class="container">
     <h1 class="text-center mt-5 text-secondary">Bath Room</h1>
     <div class="mt-5">
@@ -23,7 +22,7 @@
                             <p class="text-primary fw-medium mb-2">Sản phẩm: {{ $product->name }}</p>
                             <h5 class="lh-base mb-2">Giá: {{ number_format($product->price, 0, ',', '.') }} VND</h5>
                             <p class="mb-3">{{ $product->description }}</p>
-                            <button class="btn btn-dark">Thêm vào giỏ hàng</button>
+                            <button class="btn btn-dark" onclick="addToCart({{ $product->id }})">Thêm vào giỏ hàng</button>
                         </div>
                     </div>
                 </div>
@@ -32,4 +31,38 @@
     </div>
 </div>
 
-<!-- livingroom.blade -->@endsection
+<div id="toast" class="toast position-fixed top-0 end-0 m-3" style="display: none;">
+    <div class="toast-body bg-success text-white">
+        Sản phẩm đã được thêm vào giỏ hàng!
+    </div>
+</div>
+
+<script>
+function addToCart(productId) {
+    fetch(`/cart/add/${productId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        },
+        body: JSON.stringify({ quantity: 1 })
+    })
+    .then(response => response.json())
+    .then(data => {
+        showToast(data.message);
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.querySelector('.toast-body').textContent = message;
+    toast.style.display = 'block';
+
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 2000);
+}
+</script>
+
+@endsection

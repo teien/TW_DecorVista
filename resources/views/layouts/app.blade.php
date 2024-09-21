@@ -16,7 +16,6 @@
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
 
-
     <!-- CSS -->
     <link href="{{ asset('css/homeowner.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstraphomeowner.min.css') }}" rel="stylesheet">
@@ -36,7 +35,6 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-
 
         <!-- Page Heading -->
         @isset($header)
@@ -66,6 +64,8 @@
 
     <!-- js homeowner -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
 </body>
 
 </html>
