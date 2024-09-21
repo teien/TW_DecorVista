@@ -78,6 +78,9 @@ Route::view('/my-degisn', 'dashboard.homeowner.pages.option.mydegisn');
 Route::view('/recent-activities', 'dashboard.homeowner.pages.option.recentactivities');
 Route::view('/notifications', 'dashboard.homeowner.pages.option.notifications');
 
+// info
+Route::view('/blog', 'dashboard.homeowner.pages.info.blog');
+Route::view('/team', 'dashboard.homeowner.pages.info.team');
 
 // use
 Route::view('/shopping-cart', 'dashboard.homeowner.pages.use.shoppingcart');

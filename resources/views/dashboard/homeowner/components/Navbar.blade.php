@@ -58,8 +58,8 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/about">About</a></li>
                                 <li><a class="dropdown-item" href="/contact">Contact</a></li>
-                                <li><a class="dropdown-item" href="#">Team</a></li>
-                                <li><a class="dropdown-item" href="#">Blog</a></li>
+                                <li><a class="dropdown-item" href="/team">Team</a></li>
+                                <li><a class="dropdown-item" href="/blog">Blog</a></li>
                             </ul>
                         </li>
                     </ul>
