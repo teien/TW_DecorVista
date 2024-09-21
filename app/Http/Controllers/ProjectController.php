@@ -28,7 +28,7 @@ class ProjectController extends Controller
 
 
 
-    public function show_project()
+    public function show_comment($comments)
 {
     $comments = Review::all(); 
     return view('dashboard.homeowner.pages.projectdetail', compact('comments'));

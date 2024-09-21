@@ -12,6 +12,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/projectdetail', function () {
+    return view('dashboard.homeowner.pages.projectdetail');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -60,6 +64,6 @@ Route::view('/curtains-blinds', 'dashboard.homeowner.pages.themesstyles.curtains
 
 Route::get('/product/{id}' , [ProductController::class , 'show'])->name('product.show');
 Route::post('/project/comment', [ProjectController::class, 'post_comment'])->name('project.comment');
-Route::get('/projectdetail',[ProjectController::class] , 'show_project');
+Route::get('/project/comment',[ProjectController::class] , 'show_comment');
 
 require __DIR__.'/auth.php';
