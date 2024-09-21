@@ -7,6 +7,7 @@ use App\Http\Controllers\DesignerProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 
 
 Route::get('/', function () {
@@ -87,8 +88,27 @@ Route::view('/my-degisn', 'dashboard.homeowner.pages.option.mydegisn');
 Route::view('/recent-activities', 'dashboard.homeowner.pages.option.recentactivities');
 Route::view('/notifications', 'dashboard.homeowner.pages.option.notifications');
 
+// info
+Route::view('/blog', 'dashboard.homeowner.pages.info.blog');
+Route::view('/team', 'dashboard.homeowner.pages.info.team');
 
 // use
 Route::view('/shopping-cart', 'dashboard.homeowner.pages.use.shoppingcart');
+
+// gio hang
+Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('cart.show');
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart']);
+
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::patch('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::patch('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+
+
+
+
 
 require __DIR__ . '/auth.php';
