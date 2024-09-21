@@ -34,4 +34,8 @@ class InteriorDesigner extends Authenticatable
     {
         return $this->hasMany(Consultation::class, 'designer_id');
     }
+    public  function DesignerProfile(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(DesignerProfile::class, 'designer_id');
+    }
 }

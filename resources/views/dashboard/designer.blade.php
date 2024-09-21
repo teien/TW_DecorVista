@@ -338,7 +338,10 @@
                     </tbody>
 
                 </table>
-                <a href="{{ route('consultation.create', $profile->designer_id) }}" class="btn btn-primary">Make Appointment</a>
+                @if(auth()->user()->role === 'Homeowner')
+                    <a href="{{ route('consultation.create', $profile->designer_id) }}" class="btn btn-primary">Make Appointment</a>
+                @endif
+
             </div>
 
 
@@ -516,18 +519,18 @@
 
 
                         <main class="content">
-                            <div class="container p-0">
+                            <div class=" p-0">
                                 <div class="row mt-4">
 
-                                    <table class="table ">
+                                    <table class="table">
                                         <thead>
                                         <tr class="text-center">
-                                            <th>#</th>
-                                            <th>Name</th>
-                                            <th>Time</th>
-                                            <th>Notes</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
+                                            <th class="text-center">#</th>
+                                            <th class="text-center">Name</th>
+                                            <th class="text-center">Time</th>
+                                            <th class="text-center">Notes</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center">Actions</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -575,6 +578,8 @@
 
             </div>
         </div>
+        <div class="col-lg-1 col-xl-1 "> </div>
+
     </div>
 </div>
 

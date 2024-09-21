@@ -33,13 +33,14 @@ class DesignerProfile extends Model
      * Quan hệ với bảng InteriorDesigners
      * Một hồ sơ designer sẽ thuộc về một nhà thiết kế.
      */
-    public function designer(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(InteriorDesigner::class, 'designer_id');
-    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'designer_id', 'id');
+    }
+    public function interiorDesigner()
+    {
+        return $this->belongsTo(InteriorDesigner::class, 'designer_id');
     }
 
 

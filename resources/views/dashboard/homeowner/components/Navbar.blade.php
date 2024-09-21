@@ -94,8 +94,9 @@
                                     <li><a class="dropdown-item" href="{{ route('dashboard.designer', Auth::user()->interiorDesigner->designer_id) }}">Profile</a></li>
                                     @else
                                     <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                                            <li><a class="dropdown-item" href="/schedule">Schedule</a></li>
                                     @endif
-                                    <li><a class="dropdown-item" href="/schedule">Schedule</a></li>
+
                                     <li><a class="dropdown-item" href="/shopping-cart">Cart</a></li>
                                     <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
                                     @else

@@ -56,12 +56,13 @@ class User extends Authenticatable
         return $this->hasOne(InteriorDesigner::class, 'user_id');
 
     }
-    public function designerProfile(): \Illuminate\Database\Eloquent\Relations\HasOne
-    {
-        return $this->hasOne(DesignerProfile::class, 'designer_id', 'id');
-    }
+
     public function consultations(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Consultation::class, 'user_id');
+    }
+    public function designerProfile(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(DesignerProfile::class, 'designer_id', 'id');
     }
 }

@@ -16,12 +16,12 @@
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                 <tr class="text-center">
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Time</th>
-                    <th>Notes</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Time</th>
+                    <th class="text-center">Notes</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Actions</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -14,7 +14,7 @@ class DesignerProfileController extends Controller
 
         $designerProfile = DesignerProfile::find($designer_id);
 
-        $userName= $designerProfile->user->name ?? 'unknown';
+        $userName= $designerProfile->InteriorDesigner->user->name ?? 'Unknown';
 
         $designer = Auth::user()->interiorDesigner;
         if (!$designerProfile) {
