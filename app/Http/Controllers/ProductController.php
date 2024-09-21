@@ -29,4 +29,17 @@ class ProductController extends Controller
         // Trả về view chi tiết sản phẩm
         return view('dashboard.homeowner.pages.productdetail', compact('product', 'relatedProducts'));
     }
+
+    // Tìm kiếm sản phẩm
+    public function search(Request $request)
+    {
+        // Nhận từ khóa tìm kiếm từ input
+        $query = $request->input('query');
+
+        // Tìm kiếm sản phẩm liên quan đến từ khóa
+        $products = Product::where('name', 'LIKE', "%{$query}%")->get();
+
+        // Trả về view kết quả tìm kiếm
+        return view('dashboard.homeowner.pages.product.search_results', compact('products', 'query'));
+    }
 }

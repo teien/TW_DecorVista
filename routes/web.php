@@ -90,6 +90,9 @@ Route::view('/shopping-cart', 'dashboard.homeowner.pages.use.shoppingcart');
 Route::get('/shopping-cart', [CartController::class, 'showCart'])->name('cart.show');
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart']);
 
+// search
+Route::get('/search-products', [ProductController::class, 'search'])->name('search.products');
+
 Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
