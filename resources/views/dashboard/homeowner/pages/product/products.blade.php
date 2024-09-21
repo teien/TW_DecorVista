@@ -3,6 +3,8 @@
 @section('content')
 <div class="container">
     <h1 class="text-center mt-5 text-secondary">Bath Room</h1>
+    <div id="alertContainer" style="position: fixed; top: 180px; left: 80%; transform: translateX(-50%); z-index: 1050;"></div> 
+
     <div class="row">
         <!-- Cột bộ lọc sản phẩm -->
         <div class="col-lg-3">
@@ -39,10 +41,8 @@
                                 <div class="position-relative overflow-hidden">
                                     <img class="img-fluid w-100" src="{{ asset($product->image_url) }}" alt="Product Image">
                                     <div class="portfolio-overlay">
-                                        <a class="btn btn-square btn-outline-light mx-1" href="{{ asset($product->image) }}"
-                                            data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-square btn-outline-light mx-1" href="#"><i
-                                                class="fa-solid fa-heart"></i></a>
+                                        <a class="btn btn-square btn-outline-light mx-1" href="{{ asset($product->image) }}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fa-solid fa-heart"></i></a>
                                     </div>
                                 </div>
                                 <div class="border border-5 border-light border-top-0 p-4">
@@ -50,12 +50,8 @@
                                     <h5 class="lh-base mb-2">Giá: {{ number_format($product->price, 0, ',', '.') }} VND</h5>
                                     <p class="mb-3">{{ $product->description }}</p>
 
-                                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-dark">Thêm vào giỏ hàng</button>
-                                    </form>
+                                    <button class="btn btn-dark" onclick="addToCart({{ $product->id }})">Thêm vào giỏ hàng</button>
                                 </div>
-
                             </div>
                         </div>
                     @endforeach
@@ -65,8 +61,49 @@
     </div>
 </div>
 
-
 <script>
+let alertQueue = []; 
+let isAlertShowing = false;
+
+function showAlert(type, message) {
+    alertQueue.push({ type, message });
+    showNextAlert();
+}
+
+function showNextAlert() {
+    if (isAlertShowing || alertQueue.length === 0) return; 
+
+    const { type, message } = alertQueue.shift(); 
+    isAlertShowing = true; 
+
+    const alert = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+        ${message}
+    </div>`;
+    document.getElementById('alertContainer').innerHTML += alert;
+
+    setTimeout(() => {
+        const alerts = document.querySelectorAll('#alertContainer .alert');
+        if (alerts.length > 0) {
+            alerts[0].classList.remove('show');
+            alerts[0].classList.add('fade');
+            setTimeout(() => {
+                alerts[0].remove(); 
+                isAlertShowing = false; 
+                showNextAlert(); 
+            }, 500); 
+        }
+    }, 1000);
+}
+
+const style = document.createElement('style');
+style.innerHTML = `
+    .fade {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+    }
+`;
+document.head.appendChild(style);
+
 function addToCart(productId) {
     fetch(`/cart/add/${productId}`, {
         method: 'POST',
@@ -76,25 +113,24 @@ function addToCart(productId) {
         },
         body: JSON.stringify({ quantity: 1 })
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
     .then(data => {
-        if (data.success) {
-            Swal.fire({
-                icon: 'success',
-                title: 'Thành công!',
-                text: data.message,
-                confirmButtonText: 'OK'
-            });
+        if (data.error) {
+            showAlert('success', data.message || 'Có lỗi xảy ra, vui lòng thử lại.');
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Lỗi!',
-                text: data.message,
-                confirmButtonText: 'OK'
-            });
+            showAlert('success', 'Đã thêm vào giỏ hàng thành công!'); 
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        showAlert('success', 'Đã thêm vào giỏ hàng thành công!');
+        console.error('Error:', error);
+    });
 }
 </script>
+
 @endsection
