@@ -83,7 +83,6 @@ function updateQuantity(productId, change) {
         if (data.success) {
             quantityElement.innerText = currentQuantity;
 
-            // Tính toán và cập nhật tổng giá ngay lập tức
             let currentTotalPrice = 0;
             const cartItems = document.querySelectorAll('[id^="quantity-"]');
             cartItems.forEach(item => {
@@ -95,7 +94,6 @@ function updateQuantity(productId, change) {
 
             totalPriceElement.innerText = 'Tổng Giá: ' + currentTotalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' ₫';
 
-            // Thông báo thành công
             Swal.fire({
                 icon: 'success',
                 title: 'Cập nhật thành công!',

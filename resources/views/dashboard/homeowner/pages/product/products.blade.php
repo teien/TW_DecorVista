@@ -1,21 +1,19 @@
 @extends('dashboard.homeowner.layouts.app')
 
 @section('content')
-
 <div class="container">
     <h1 class="text-center mt-5 text-secondary">Bath Room</h1>
     <div class="mt-5">
         <div class="d-flex row">
             @foreach($products as $product)
-                <div class="col-lg-3 col-md-4 portfolio-item first wow fadeInUp my-3" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-md-4 portfolio-item first wow fadeInUp my-3">
                     <div class="rounded overflow-hidden">
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid w-100" src="{{ asset($product->image_url) }}" alt="Product Image">
                             <div class="portfolio-overlay">
                                 <a class="btn btn-square btn-outline-light mx-1" href="{{ asset($product->image) }}"
                                     data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                <a class="btn btn-square btn-outline-light mx-1" href="#"><i
-                                        class="fa-solid fa-heart"></i></a>
+                                <a class="btn btn-square btn-outline-light mx-1" href="#"><i class="fa-solid fa-heart"></i></a>
                             </div>
                         </div>
                         <div class="border border-5 border-light border-top-0 p-4">
@@ -31,12 +29,6 @@
     </div>
 </div>
 
-<div id="toast" class="toast position-fixed top-0 end-0 m-3" style="display: none;">
-    <div class="toast-body bg-success text-white">
-        Sản phẩm đã được thêm vào giỏ hàng!
-    </div>
-</div>
-
 <script>
 function addToCart(productId) {
     fetch(`/cart/add/${productId}`, {
@@ -49,20 +41,23 @@ function addToCart(productId) {
     })
     .then(response => response.json())
     .then(data => {
-        showToast(data.message);
+        if (data.success) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công!',
+                text: data.message,
+                confirmButtonText: 'OK'
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Lỗi!',
+                text: data.message,
+                confirmButtonText: 'OK'
+            });
+        }
     })
     .catch(error => console.error('Error:', error));
 }
-
-function showToast(message) {
-    const toast = document.getElementById('toast');
-    toast.querySelector('.toast-body').textContent = message;
-    toast.style.display = 'block';
-
-    setTimeout(() => {
-        toast.style.display = 'none';
-    }, 2000);
-}
 </script>
-
 @endsection
