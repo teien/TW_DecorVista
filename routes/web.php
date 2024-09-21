@@ -8,8 +8,16 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/productdetail', function () {
+    return view('dashboard.homeowner.pages.productdetail');
+});
+
+Route::get('/projectdetail', function () {
+    return view('dashboard.homeowner.pages.projectdetail');
 });
 
 Route::get('/dashboard', function () {
@@ -63,6 +71,7 @@ Route::view('/rugs-carpets', 'dashboard.homeowner.pages.themesstyles.rugs-carpet
 Route::view('/art', 'dashboard.homeowner.pages.themesstyles.art');
 Route::view('/curtains-blinds', 'dashboard.homeowner.pages.themesstyles.curtains-blinds');
 
+Route::get('/product/{id}' , [ProductController::class , 'show'])->name('product.show');
 
 // option
 Route::view('/my-degisn', 'dashboard.homeowner.pages.option.mydegisn');
