@@ -162,8 +162,8 @@
     border: none;
     background-color: transparent;
     position: absolute;
-    left: 285px;
-    top: 50%;
+    left: 35px;
+    top: 60%;
     transform: translateY(-65%); 
     cursor: pointer;
     z-index: 1; 
