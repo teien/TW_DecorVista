@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="row w-100">
                 <!-- Navbar Links -->
-                <div class="col text-center">
+                <div class="col justify-content-center">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <!-- Categories Dropdown -->
                         <li class="nav-item dropdown">
@@ -65,14 +65,17 @@
                 </div>
 
                 <!-- Logo -->
-                <div class="col text-center">
-                    <a class="navbar-brand fs-2 logo" href="/dashboard">DecorVista</a>
+                <div class="col">
+                    <div class="row text-center justify-content-center align-items-center ">
+                        <a class="navbar-brand fs-2 logo" href="/dashboard">DecorVista</a>
+                    </div>
                 </div>
+
 
                 <div class="col">
                     <!-- Search Bar -->
-                    <div class="row text-center d-flex align-items-center justify-content-center mt-1">
-                        <div class="col-md-11">
+                    <div class="row text-center d-flex align-items-center justify-content-center mt-2">
+                        <div class="col-md-11 w-60 h-auto">
                             <form action="#" class="search d-flex">
                                 <button class="search__button">
                                     <div class="search__icon">
@@ -86,7 +89,7 @@
                         </div>
 
                         <!-- User Dropdown -->
-                        <div class="col-1 mr-5">
+                        <div class="col-md-1 mb-1">
                             <li class="nav-item dropdown list-unstyled">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-user-check"></i>  @if(

@@ -512,7 +512,59 @@
 
                     </div>
                     <div class="tab-pane" id="todo" href="#todo">
-                        @include('dashboard.interior_design.todo')
+
+
+
+                        <main class="content">
+                            <div class="container p-0">
+                                <div class="row mt-4">
+
+                                    <table class="table ">
+                                        <thead>
+                                        <tr class="text-center">
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Time</th>
+                                            <th>Notes</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($consultations as $consultation)
+                                            <tr class="text-center">
+                                                <td>{{ $consultation->id }}</td>
+                                                <td>{{ $consultation->user->name}}</td>
+                                                <td>{{ $consultation->start_time }} -> {{ $consultation->end_time }}</td>
+                                                <td>{{ $consultation->notes}}</td>
+                                                <td >{{ ucfirst($consultation->status) }}</td>
+                                                <td>
+                                                    @if($consultation->status == 'pending')
+                                                        <form action="{{ route('designer.consultations.accept', $consultation->id) }}" method="POST" class="d-inline">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success">Accept</button>
+                                                        </form>
+                                                        <form action="{{ route('designer.consultations.reject', $consultation->id) }}" method="POST" class="d-inline">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-danger">Reject</button>
+                                                        </form>
+                                                    @elseif($consultation->status == 'confirmed')
+                                                        <form action="{{ route('designer.consultations.complete', $consultation->id) }}" method="POST" class="d-inline">
+                                                            @csrf
+                                                            <button type="submit" class="btn btn-success">Complete</button>
+                                                        </form>
+                                                    @elseif($consultation->status == 'completed')
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </main>
+
                     </div>
                     @endif
                     <div class="tab-pane" id="project" href="#project">
@@ -526,10 +578,10 @@
     </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-
 </script>
 <script>
     $(document).ready(function() {

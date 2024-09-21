@@ -130,7 +130,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; 
+    position: relative;
 }
 
 .search__input {
@@ -164,9 +164,9 @@
     position: absolute;
     left: 285px;
     top: 50%;
-    transform: translateY(-65%); 
+    transform: translateY(-65%);
     cursor: pointer;
-    z-index: 1; 
+    z-index: 1;
 }
 
 .search__icon {
@@ -179,7 +179,7 @@
     color: #000000;
     font-weight: 900;
     margin: 0 30px;
-    
+
 }
 
 
@@ -365,7 +365,7 @@
         position: relative;
         min-height: 500px;
     }
-    
+
     .header-carousel .owl-carousel-item img {
         position: absolute;
         width: 100%;
