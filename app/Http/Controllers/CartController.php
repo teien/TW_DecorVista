@@ -28,13 +28,13 @@ class CartController extends Controller
     public function addToCart(Request $request, $id)
     {
         $product = Product::find($id);
-    
+
         if (!$product) {
             return response()->json(['success' => false, 'message' => 'Sản phẩm không tồn tại.'], 404);
         }
-    
+
         $cart = session()->get('cart', []);
-    
+
         if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
         } else {
@@ -45,11 +45,13 @@ class CartController extends Controller
                 'quantity' => 1,
             ];
         }
-    
+
         session()->put('cart', $cart);
-        return response()->json(['success' => true, 'message' => 'Sản phẩm đã được thêm vào giỏ hàng.']);
+// hien thong bao tren man hinh
+        
+        return redirect()->route('products.index')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng.');
     }
-    
+
 
     // Xóa sản phẩm khỏi giỏ hàng
     public function removeFromCart($id)

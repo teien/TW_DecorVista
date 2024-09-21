@@ -49,8 +49,13 @@
                                     <p class="text-primary fw-medium mb-2">Sản phẩm: {{ $product->name }}</p>
                                     <h5 class="lh-base mb-2">Giá: {{ number_format($product->price, 0, ',', '.') }} VND</h5>
                                     <p class="mb-3">{{ $product->description }}</p>
-                                    <button class="btn btn-dark">Thêm vào giỏ hàng</button>
+
+                                    <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                                        @csrf
+                                        <button type="submit" class="btn btn-dark">Thêm vào giỏ hàng</button>
+                                    </form>
                                 </div>
+
                             </div>
                         </div>
                     @endforeach
