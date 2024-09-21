@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         User::factory(10)->create();
+        User::factory(10)->create();
         User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin'),
             'role' => 'Admin',
         ]);
+        $this->call(ProductSeeder::class);
+        $this->call(ConsultationSeeder::class);
 
     }
 }

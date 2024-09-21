@@ -17,17 +17,17 @@ class ConsultationSeeder extends Seeder
      */
     public function run()
     {
-        // Lấy ngẫu nhiên một user và một designer
+
         $user = User::where('role', 'Homeowner')->inRandomOrder()->first();
         $designer = InteriorDesigner::inRandomOrder()->first();
 
-        // Tạo cuộc hẹn mẫu
+
         Consultation::create([
-            'user_id' => $user->id,  // ID của Homeowner
-            'designer_id' => $designer->designer_id,  // ID của Designer
-             'start_time' => Carbon::now()->addDays(3),  // Thời gian bắt đầu
-            'end_time' => Carbon::now()->addDays(3)->addHours(1),  // Thời gian kết thúc
-            'status' => 'pending',  // Trạng thái cuộc hẹn
+            'user_id' => $user->id,
+            'designer_id' => $designer->designer_id,
+             'start_time' => Carbon::now()->addDays(3),
+            'end_time' => Carbon::now()->addDays(3)->addHours(1),
+            'status' => 'pending',
             'notes' => 'This is a sample consultation note',  // Ghi chú
         ]);
     }

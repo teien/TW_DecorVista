@@ -50,6 +50,7 @@ Route::middleware(['auth', 'role:Admin'])->group(function() {
     Route::put('/admin/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
     Route::delete('/admin/users/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
     Route::put('/admin/users/{id}/restore', [UserController::class, 'restore'])->name('admin.users.restore');
+    Route::resource('admin/products', \App\Http\Controllers\Admin\ProductController::class);
 });
 
 

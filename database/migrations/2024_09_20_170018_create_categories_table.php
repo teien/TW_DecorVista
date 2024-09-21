@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id(); // Tương đương với BIGINT AUTO_INCREMENT PRIMARY KEY
+            $table->id();
             $table->string('category_name', 100);
-            $table->timestamps(); // Thêm timestamps nếu cần
+            $table->timestamps();
         });
     }
 

@@ -62,7 +62,7 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
     Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-    //tao route login cho admin khi mat khau va pass la admin admin
+
 
 });
 

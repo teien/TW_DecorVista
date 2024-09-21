@@ -90,12 +90,25 @@
                         <div class="col-1 mr-5">
                             <li class="nav-item dropdown list-unstyled">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-user-check"></i>  Use
+                                    <i class="fa-solid fa-user-check"></i>  @if(
+                                    Auth::check()) {{ Auth::user()->name }} @else
+                                        Guest @endif
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="shopping-cart">Shopping cart</a></li>
-                                    <li><a class="dropdown-item" href="contact">Register</a></li>
-                                    <li><a class="dropdown-item" href="#">Login</a></li>
+                                <ul class="dropdown-menu text-center">
+                                    @if(Auth::check())
+                                        @if(Auth::user()->interiorDesigner)
+                                            <li><a class="dropdown-item" href="{{ route('dashboard.designer', Auth::user()->interiorDesigner->designer_id) }}">Profile</a></li>
+                                        @else
+                                            <li><a class="dropdown-item" href="profile">Profile</a></li>
+                                        @endif
+                                        <li><a class="dropdown-item" href="shopping-cart">Cart</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+                                    @else
+                                        <li><a class="dropdown-item" href="shopping-cart">Cart</a></li>
+                                        <li><a class="dropdown-item" href="/login">Login</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+
+                                    @endif
                                 </ul>
                             </li>
                         </div>

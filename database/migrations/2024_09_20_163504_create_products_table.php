@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->text('description')->nullable();
             $table->string('image_url', 255)->nullable();
-            $table->timestamps(); // Bao gồm cả created_at và updated_at
+            $table->timestamps();
         });
     }
 
