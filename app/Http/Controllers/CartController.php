@@ -48,7 +48,7 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 // hien thong bao tren man hinh
-        
+
         return redirect()->route('products.index')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng.');
     }
 
