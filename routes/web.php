@@ -70,6 +70,7 @@ Route::get('/list/designer', [\App\Http\Controllers\UserController::class, 'show
 
 // check giao diẹn room
 Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
 
 
 // check giao diẹn room

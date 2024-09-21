@@ -12,17 +12,9 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <!-- Categories Dropdown -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Categories
+                            <a class="nav-link dropdown-toggle" href="products" role="button" aria-expanded="false">
+                                Product
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="living-room">Living Room</a></li>
-                                <li><a class="dropdown-item" href="bed-room">Bedroom</a></li>
-                                <li><a class="dropdown-item" href="kitchen">Kitchen</a></li>
-                                <li><a class="dropdown-item" href="bath-room">Bathroom</a></li>
-                                <li><a class="dropdown-item" href="office">Office</a></li>
-                                <li><a class="dropdown-item" href="outdoor">Outdoor Space</a></li>
-                            </ul>
                         </li>
                         <!-- Themes & Styles Dropdown -->
                         <li class="nav-item dropdown">
