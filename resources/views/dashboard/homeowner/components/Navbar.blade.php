@@ -58,7 +58,6 @@
                                 <li><a class="dropdown-item" href="/about">About</a></li>
                                 <li><a class="dropdown-item" href="/contact">Contact</a></li>
                                 <li><a class="dropdown-item" href="/list/designer">Designer</a></li>
-                                <li><a class="dropdown-item" href="#">Blog</a></li>
                                 <li><a class="dropdown-item" href="/team">Team</a></li>
                                 <li><a class="dropdown-item" href="/blog">Blog</a></li>
                             </ul>
@@ -94,8 +93,9 @@
                         <div class="col-md-1 mb-1">
                             <li class="nav-item dropdown list-unstyled">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-user-check"></i>  Use
-                                </a>
+                                    <i class="fa-solid fa-user-check"></i> @if(
+                                    Auth::check()) {{ Auth::user()->name }} @else
+                                        Guest @endif                             </a>
                                 <ul class="dropdown-menu text-center">
                                     @if(Auth::check())
                                     @if(Auth::user()->interiorDesigner)
