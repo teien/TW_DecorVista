@@ -30,7 +30,7 @@
 
             <!-- Read More Button -->
             <div class="col-md-2 d-flex justify-content-end align-items-center">
-                <a href="#" class="btn btn-outline-primary">Read More</a>
+                <a href="{{ route('project.detail') }}" class="btn btn-outline-primary">Read More</a>
             </div>
         </div>
 

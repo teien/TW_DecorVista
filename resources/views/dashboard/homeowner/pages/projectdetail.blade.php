@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container blog-single gray-bg">
+<div class="container blog-single gray-bg mt-5">
     <div class="row align-items-start">
         <div class="col-lg-8 m-15px-tb">
             <article class="article">
@@ -20,7 +20,7 @@
                     <p>Nhìn chung, căn hộ này không chỉ đề cao tính thẩm mỹ mà còn đảm bảo sự tiện nghi trong từng chi tiết nhỏ. Từ cách bố trí nội thất, lựa chọn màu sắc cho đến việc sử dụng các chi tiết trang trí, tất cả đều nhằm mang lại một không gian sống hoàn hảo, phản ánh sự thanh lịch, hiện đại nhưng vẫn rất đỗi ấm cúng và gần gũi. Đây chính là không gian lý tưởng cho những người tìm kiếm sự cân bằng giữa phong cách sống hiện đại và sự thoải mái trong cuộc sống hàng ngày.
 </p>
                 </div>
-                
+
             </article>
         </div>
 
@@ -42,7 +42,7 @@
                     <p></p>
                 </div>
             </div>
-            
+
             <div class="widget widget-post mb-4">
                 <div class="widget-title">
                     <h3>This is the project that I designed</h3>
@@ -54,9 +54,9 @@ Tôi tin rằng mỗi không gian đều có tiềm năng trở thành một tá
                 </div>
             </div>
 
-            
 
-           
+
+
         </div>
     </div>
 
@@ -67,8 +67,8 @@ Tôi tin rằng mỗi không gian đều có tiềm năng trở thành một tá
                     <div class="panel-heading">
                         <h2 class="text-center">Comments</h2>
                     </div>
-                    
-                    
+
+
                     <div class="panel-body">
                     @if (auth()->check())
                     <form action="{{route('project.comment')}}" method="POST">
@@ -81,17 +81,17 @@ Tôi tin rằng mỗi không gian đều có tiềm năng trở thành một tá
                     <div class="alert alert-danger">
                         <strong>Chưa đăng nhập</strong><br>
                         Click vào đây để đăng nhập <a href="/login">Đăng nhập</a>
-                        
+
                     </div>
                     @endif
                         <hr>
                         <ul class="media-list list-unstyled">
-                           
+
                         <li class="media">
                         @foreach($comments as $cmt)
     <li class="media">
         <a href="#" class="pull-left">
-            <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" alt="User" class="img-circle img-fluid
+            <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" alt="User"  style="width: 30px ; height:30px" class="card-img-top rounded-circle mt-4
             ">
         </a>
         <div class="media-body">
@@ -107,11 +107,11 @@ Tôi tin rằng mỗi không gian đều có tiềm năng trở thành một tá
 @endforeach
 </li>
 
-                            
+
                         </ul>
                     </div>
-                  
-                    
+
+
                 </div>
             </div>
         </div>
