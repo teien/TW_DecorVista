@@ -15,13 +15,7 @@ class CartController extends Controller
             $cartItems = [];
         }
 
-        // Tính tổng giá
-        $totalPrice = 0;
-        foreach ($cartItems as $item) {
-            $totalPrice += $item['price'] * $item['quantity'];
-        }
-
-        return view('dashboard.homeowner.pages.use.shoppingcart', compact('cartItems', 'totalPrice'));
+        return view('dashboard.homeowner.pages.use.shoppingcart', compact('cartItems'));
     }
 
     // Thêm sản phẩm vào giỏ hàng
@@ -47,11 +41,8 @@ class CartController extends Controller
         }
 
         session()->put('cart', $cart);
-// hien thong bao tren man hinh
-
         return redirect()->route('products.index')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng.');
     }
-
 
     // Xóa sản phẩm khỏi giỏ hàng
     public function removeFromCart($id)
@@ -74,11 +65,22 @@ class CartController extends Controller
         $cart = session()->get('cart');
 
         if (isset($cart[$id])) {
+            if ($quantity <= 0) {
+                return response()->json(['success' => false, 'message' => 'Số lượng phải lớn hơn 0.']);
+            }
+
             $cart[$id]['quantity'] = $quantity;
             session()->put('cart', $cart);
             return response()->json(['success' => true, 'message' => 'Cập nhật thành công']);
         }
 
         return response()->json(['success' => false, 'message' => 'Sản phẩm không tồn tại']);
+    }
+
+    // Xóa tất cả sản phẩm trong giỏ hàng
+    public function clear()
+    {
+        session()->forget('cart');
+        return response()->json(['success' => true, 'message' => 'Giỏ hàng đã được xóa.']);
     }
 }

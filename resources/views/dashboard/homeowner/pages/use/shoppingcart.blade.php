@@ -43,6 +43,7 @@
 
         <div class="row mt-3">
             <div class="col text-end">
+                <button class="btn btn-danger" onclick="clearCart()">Xóa tất cả</button>
                 <a href="{{ route('products.index') }}" class="btn btn-primary">Tiếp tục mua hàng</a>
             </div>
         </div>
@@ -53,64 +54,79 @@
 </div>
 
 <script>
-function updateQuantity(productId, change) {
-    const quantityElement = document.getElementById(`quantity-${productId}`);
-    const priceElement = document.getElementById(`price-${productId}`);
-    const totalPriceElement = document.getElementById('total-price');
+function updateQuantity(id, change) {
+    const quantityElement = document.getElementById(`quantity-${id}`);
+    let quantity = parseInt(quantityElement.innerText);
+    quantity += change;
 
-    let currentQuantity = parseInt(quantityElement.innerText);
-    currentQuantity += change;
-
-    if (currentQuantity < 1) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Số lượng không thể nhỏ hơn 1.',
-            confirmButtonText: 'OK'
-        });
-        return;
+    if (quantity < 1) {
+        quantity = 1;
     }
 
-    fetch(`/cart/update/${productId}`, {
-        method: 'PATCH',
+    quantityElement.innerText = quantity;
+
+    fetch(`/cart/update/${id}`, {
+        method: 'PATCH', 
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': '{{ csrf_token() }}'
         },
-        body: JSON.stringify({ quantity: currentQuantity })
+        body: JSON.stringify({ quantity: quantity })
     })
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            quantityElement.innerText = currentQuantity;
-
-            let currentTotalPrice = 0;
-            const cartItems = document.querySelectorAll('[id^="quantity-"]');
-            cartItems.forEach(item => {
-                const itemId = item.id.split('-')[1];
-                const itemQuantity = parseInt(item.innerText);
-                const itemPrice = parseFloat(document.getElementById(`price-${itemId}`).innerText.replace(/\./g, '').replace(' ₫', ''));
-                currentTotalPrice += itemQuantity * itemPrice;
-            });
-
-            totalPriceElement.innerText = 'Tổng Giá: ' + currentTotalPrice.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' ₫';
-
-            Swal.fire({
-                icon: 'success',
-                title: 'Cập nhật thành công!',
-                text: `Số lượng đã được cập nhật thành ${currentQuantity}.`,
-                confirmButtonText: 'OK'
-            });
+            updateTotalPrice(); 
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Lỗi!',
-                text: data.message,
-                confirmButtonText: 'OK'
-            });
+            alert(data.message);
         }
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
+
+function updateTotalPrice() {
+    let totalPrice = 0;
+    const cartItems = document.querySelectorAll('.row.justify-content-between');
+
+    cartItems.forEach(item => {
+        const price = parseFloat(item.querySelector('h4').innerText.replace(/[,. ₫]/g, ''));
+        const quantity = parseInt(item.querySelector('span').innerText);
+        totalPrice += price * quantity;
+    });
+
+    document.getElementById('total-price').innerText = `Tổng Giá: ${totalPrice.toLocaleString('vi-VN')} ₫`;
+}
+
+function clearCart() {
+    fetch('/cart/clear', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('total-price').innerText = 'Tổng Giá: 0 ₫';
+
+            const cartItemsContainer = document.querySelector('.container'); 
+            cartItemsContainer.innerHTML = '<p>Giỏ hàng của bạn đang trống.</p>'; 
+
+            const productRows = document.querySelectorAll('.row.justify-content-between');
+            productRows.forEach(row => row.remove()); 
+        } else {
+            alert(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
 </script>
 
 @endsection
