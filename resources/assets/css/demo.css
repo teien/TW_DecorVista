@@ -537,3 +537,41 @@ img {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+.cardCss {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardCss:hover {
+  transform: scale(1.05); /* Tăng kích thước card lên 5% khi hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cardCss img {
+  border-bottom: 1px solid #ddd;
+}
+
+.cardCss .card-body {
+  text-align: center;
+}
+
+.cardCss .card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cardCss .card-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.cardCss .btn-outline-primary {
+  margin-top: 15px;
+  width: 100%;
+}
+
+a.text-dark:hover {
+  color: #007bff;
+  text-decoration: none;
+}

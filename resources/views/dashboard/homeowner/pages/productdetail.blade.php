@@ -4,8 +4,8 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-6">
-            <div class="product-image">
-                <img src="{{ asset($product->image_url) }}" alt="Product Image" class="img-fluid">
+            <div class="product-image ">
+                <img src="{{ asset($product->image_url) }}" alt="Product Image" class="img-fluid ">
             </div>
         </div>
 
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="row">
-        <h2 class="text-center mt-5"> Mô Tả </h2>
+        <h2 class="text-center mt-5">Description </h2>
         <p>{{$product->description}}</p>
     </div> 
     @if($relatedProduct->count() > 0)
@@ -47,19 +47,19 @@
     <div class="row">
     @foreach($relatedProduct as $rlp)
         
-        <div class="col-3" >
-        <a href="{{ route('product.show', $rlp->id) }}">
-        <div class="card" style="width: 18rem;">
-        <img src="{{ asset($rlp->image_url) }}" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">{{$rlp->product_name}}</h5>
-        <p class="card-text">{{$rlp->description}}</p>
-        <h5>{{$rlp->price}}</h5>
-        <a href="#" class="btn btn-primary">Add to card</a>
-        </div>
-        </div>
-        </a>
-        </div>
+    <div class="col-3 mb-4">
+  <a href="{{ route('product.show', $rlp->id) }}" class="text-decoration-none text-dark ">
+    <div class="card shadow-sm h-100 cardCss ">
+      <img src="{{ asset($rlp->image_url) }}" class="card-img-top" alt="{{ $rlp->product_name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ $rlp->product_name }}</h5>
+        <p class="card-text text-muted">{{ \Illuminate\Support\Str::limit($rlp->description, 50) }}</p>
+        <h5 class="text-primary">{{ number_format($rlp->price, 0, ',', '.') }} VND</h5>
+        <a href="#" class="btn btn-outline-primary btn-block">Add to cart</a>
+      </div>
+    </div>
+  </a>
+</div>
         @endforeach 
     </div>
      

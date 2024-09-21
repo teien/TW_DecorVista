@@ -2,194 +2,120 @@
 
 @section('content')
 
-<div class="blog-single gray-bg">
-        <div class="container">
-            <div class="row align-items-start">
-                <div class="col-lg-8 m-15px-tb">
-                    <article class="article">
-                        <div class="article-img">
-                            <img src="https://www.bootdey.com/image/800x350/87CEFA/000000" title="" alt="">
-                        </div>
-                        <div class="article-title">
-                            <h6><a href="#">Lifestyle</a></h6>
-                            <h2>They Now Bade Farewell To The Kind But Unseen People</h2>
-                            <div class="media">
-                                <div class="avatar">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" title="" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <label>Rachel Roth</label>
-                                    <span>26 FEB 2020</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="article-content">
-                            <p>Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem. Adipiscing veni amet luctus enim sem libero tellus viverra venenatis aliquam. Commodo natoque quam pulvinar elit.</p>
-                            <p>Eget aenean tellus venenatis. Donec odio tempus. Felis arcu pretium metus nullam quam aenean sociis quis sem neque vici libero. Venenatis nullam fringilla pretium magnis aliquam nunc vulputate integer augue ultricies cras. Eget viverra feugiat cras ut. Sit natoque montes tempus ligula eget vitae pede rhoncus maecenas consectetuer commodo condimentum aenean.</p>
-                            <h4>What are my payment options?</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <blockquote>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                <p class="blockquote-footer">Someone famous in <cite title="Source Title">Dick Grayson</cite></p>
-                            </blockquote>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
-                        <div class="nav tag-cloud">
-                            <a href="#">Design</a>
-                            <a href="#">Development</a>
-                            <a href="#">Travel</a>
-                            <a href="#">Web Design</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Research</a>
-                            <a href="#">Managment</a>
-                        </div>
-                    </article>
-                    <div class="contact-form article-comment">
-                        <h4>Leave a Reply</h4>
-                        <form id="contact-form" method="POST">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input name="Name" id="name" placeholder="Name *" class="form-control" type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input name="Email" id="email" placeholder="Email *" class="form-control" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea name="message" id="message" placeholder="Your message *" rows="4" class="form-control"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="send">
-                                        <button class="px-btn theme"><span>Submit</span> <i class="arrow"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+<div class="container blog-single gray-bg">
+    <div class="row align-items-start">
+        <div class="col-lg-8 m-15px-tb">
+            <article class="article">
+                <h2>Our Project</h2>
+                <div class="article-img mb-3">
+                    <img src="https://i.pinimg.com/736x/b4/b4/db/b4b4dbfe57beb4a388f85d12b2d5f012.jpg" alt="Project Image" class="img-fluid">
                 </div>
-                <div class="col-lg-4 m-15px-tb blog-aside">
-                    <!-- Author -->
-                    <div class="widget widget-author">
-                        <div class="widget-title">
-                            <h3>Author</h3>
-                        </div>
-                        <div class="widget-body">
-                            <div class="media align-items-center">
-                                <div class="avatar">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" title="" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h6>Hello, I'm<br> Rachel Roth</h6>
-                                </div>
-                            </div>
-                            <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores</p>
-                        </div>
-                    </div>
-                    <!-- End Author -->
-                    <!-- Trending Post -->
-                    <div class="widget widget-post">
-                        <div class="widget-title">
-                            <h3>Trending Now</h3>
-                        </div>
-                        <div class="widget-body">
 
+                <div class="article-content mt-3">
+                    <h3>Introduction</h3>
+                    <p>Căn hộ này được thiết kế theo phong cách hiện đại và tối giản, mang đến không gian sống tiện nghi, thoải mái mà vẫn đầy tinh tế. Với diện tích vừa phải, căn hộ tận dụng tối đa từng khoảng không, tạo nên sự hài hòa giữa chức năng và thẩm mỹ. Tông màu chủ đạo trong thiết kế là các gam màu trung tính như trắng, be và xanh pastel, giúp không gian trở nên rộng rãi, sáng sủa hơn và mang lại cảm giác thanh lịch, dễ chịu.</p>
+                    <p>Khu vực phòng khách nổi bật với bộ sofa màu xanh pastel nhẹ nhàng, được đặt cạnh bàn trà có kiểu dáng đơn giản nhưng thanh lịch, phù hợp với tổng thể không gian. Thảm trải sàn với họa tiết hình học không quá cầu kỳ nhưng lại là điểm nhấn tinh tế, giúp không gian trở nên ấm cúng hơn. Kệ tivi nhỏ gọn được thiết kế vừa đủ để chứa các thiết bị điện tử và đồ trang trí nhỏ, tạo nên cảm giác ngăn nắp, hiện đại. Các giá kệ gắn tường là một lựa chọn thông minh, giúp tận dụng không gian dọc theo tường mà không gây cảm giác chật chội.</p>
+                    <p>Phòng bếp và khu vực ăn uống được bố trí liền kề, với thiết kế mở giúp tối ưu hóa không gian và tạo cảm giác thông thoáng. Tủ bếp màu trắng với thiết kế tối giản không chỉ tạo sự sạch sẽ mà còn mang lại nét hiện đại, tinh tế. Bàn ăn làm bằng gỗ tự nhiên, kết hợp cùng các chi tiết kim loại trong thiết kế đèn treo, vừa tạo nên sự ấm cúng vừa mang lại cảm giác trang nhã cho không gian dùng bữa.</p>
+                    <p>Ngoài ra, các yếu tố trang trí như tranh treo tường và cây xanh cũng được lựa chọn kỹ lưỡng, không quá cầu kỳ nhưng đủ để tạo ra điểm nhấn cho căn phòng. Những bức tranh treo tường với họa tiết nghệ thuật đơn giản giúp không gian trở nên sống động và gần gũi hơn, trong khi cây xanh mang lại cảm giác tươi mới, kết nối giữa con người và thiên nhiên.</p>
+                    <p>Nhìn chung, căn hộ này không chỉ đề cao tính thẩm mỹ mà còn đảm bảo sự tiện nghi trong từng chi tiết nhỏ. Từ cách bố trí nội thất, lựa chọn màu sắc cho đến việc sử dụng các chi tiết trang trí, tất cả đều nhằm mang lại một không gian sống hoàn hảo, phản ánh sự thanh lịch, hiện đại nhưng vẫn rất đỗi ấm cúng và gần gũi. Đây chính là không gian lý tưởng cho những người tìm kiếm sự cân bằng giữa phong cách sống hiện đại và sự thoải mái trong cuộc sống hàng ngày.
+</p>
+                </div>
+                
+            </article>
+        </div>
+
+        <div class="col-lg-4 m-15px-tb blog-aside">
+            <!-- Author -->
+            <div class="widget widget-author mb-4">
+                <div class="widget-title">
+                    <h3>Author</h3>
+                </div>
+                <div class="widget-body">
+                    <div class="media align-items-center">
+                        <div class="avatar">
+                            <img src="https://htmediagroup.vn/wp-content/uploads/2023/03/Anh-profile-nam-7-min.jpg" alt="Author" class="img-circle img-fluid">
+                        </div>
+                        <div class="media-body">
+                            <h6>Hello, I'm<br> Jack </h6>
                         </div>
                     </div>
-                    <!-- End Trending Post -->
-                    <!-- Latest Post -->
-                    <div class="widget widget-latest-post">
-                        <div class="widget-title">
-                            <h3>Latest Post</h3>
-                        </div>
-                        <div class="widget-body">
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="name" href="#">
-                                            Rachel Roth
-                                        </a>
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="name" href="#">
-                                            Rachel Roth
-                                        </a>
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="latest-post-aside media">
-                                <div class="lpa-left media-body">
-                                    <div class="lpa-title">
-                                        <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
-                                    </div>
-                                    <div class="lpa-meta">
-                                        <a class="name" href="#">
-                                            Rachel Roth
-                                        </a>
-                                        <a class="date" href="#">
-                                            26 FEB 2020
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="lpa-right">
-                                    <a href="#">
-                                        <img src="https://www.bootdey.com/image/400x200/FFB6C1/000000" title="" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <p></p>
+                </div>
+            </div>
+            
+            <div class="widget widget-post mb-4">
+                <div class="widget-title">
+                    <h3>This is the project that I designed</h3>
+                </div>
+                <div class="widget-body">
+                    <p>"Chào mừng bạn đến với không gian sáng tạo của tôi! Tôi là Jack, một nhà thiết kế nội thất đam mê việc biến những ý tưởng trừu tượng thành hiện thực. Mỗi dự án tôi thực hiện không chỉ là việc sắp xếp đồ nội thất hay phối màu sắc, mà còn là hành trình tạo ra một không gian phản ánh cá tính, phong cách sống và câu chuyện của từng khách hàng. Với tôi, thiết kế nội thất không chỉ là nghệ thuật mà còn là sự giao thoa tinh tế giữa thẩm mỹ và chức năng.
+
+Tôi tin rằng mỗi không gian đều có tiềm năng trở thành một tác phẩm độc đáo, mang lại sự thoải mái, hài hòa và cảm hứng. Từ việc lựa chọn vật liệu bền vững cho đến từng chi tiết trang trí nhỏ nhất, tôi luôn nỗ lực mang đến cho khách hàng những giải pháp sáng tạo, tinh tế và phù hợp với phong cách sống hiện đại. Hãy cùng tôi tạo nên một không gian sống thật đặc biệt, nơi bạn có thể tận hưởng và trải nghiệm mọi khoảnh khắc một cách trọn vẹn nhất."</p>
+                </div>
+            </div>
+
+            
+
+           
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-8 col-sm-12">
+            <div class="comment-wrapper">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h2 class="text-center">Comments</h2>
                     </div>
-                    <!-- End Latest Post -->
-                    <!-- widget Tags -->
-                    <div class="widget widget-tags">
-                        <div class="widget-title">
-                            <h3>Latest Tags</h3>
-                        </div>
-                        <div class="widget-body">
-                            <div class="nav tag-cloud">
-                                <a href="#">Design</a>
-                                <a href="#">Development</a>
-                                <a href="#">Travel</a>
-                                <a href="#">Web Design</a>
-                                <a href="#">Marketing</a>
-                                <a href="#">Research</a>
-                                <a href="#">Managment</a>
-                            </div>
-                        </div>
+                    
+                    
+                    <div class="panel-body">
+                    @if (auth()->check())
+                    <form action="{{route('project.comment')}}" method="POST">
+                    @csrf
+                        <textarea name="comment" class="form-control" placeholder="Write a comment..." rows="3"></textarea>
+                        <br>
+                        <button type="submit" class="btn btn-info pull-right">Post</button>
+                    </form>
+                    @else
+                    <div class="alert alert-danger">
+                        <strong>Chưa đăng nhập</strong><br>
+                        Click vào đây để đăng nhập <a href="/login">Đăng nhập</a>
+                        
                     </div>
-                    <!-- End widget Tags -->
+                    @endif
+                        <hr>
+                        <ul class="media-list list-unstyled">
+                           
+                        <li class="media">
+                        @foreach($comments as $cmt)
+    <li class="media">
+        <a href="#" class="pull-left">
+            <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" alt="User" class="img-circle img-fluid
+            ">
+        </a>
+        <div class="media-body">
+            <span class="text-muted pull-right">
+                <h5
+                 class="text-muted">{{ $cmt->username }}</h5>
+            </span>
+            <strong class="text-success">{{ $cmt->comment }}</strong>
+            <p class="date-cmt">{{ $cmt->created_at->format('d/m/Y') }}</p>
+            <p></p>
+        </div>
+    </li>
+@endforeach
+</li>
+
+                            
+                        </ul>
+                    </div>
+                  
+                    
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+</div>
+
+@endsection
