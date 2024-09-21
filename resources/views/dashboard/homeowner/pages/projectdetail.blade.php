@@ -91,13 +91,16 @@ Tôi tin rằng mỗi không gian đều có tiềm năng trở thành một tá
                         @foreach($comments as $cmt)
     <li class="media">
         <a href="#" class="pull-left">
-            <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" alt="User" class="img-circle">
+            <img src="https://cellphones.com.vn/sforum/wp-content/uploads/2023/10/avatar-trang-4.jpg" alt="User" class="img-circle img-fluid
+            ">
         </a>
         <div class="media-body">
             <span class="text-muted pull-right">
-                <small class="text-muted">{{ $cmt->username }}</small>
+                <h5
+                 class="text-muted">{{ $cmt->username }}</h5>
             </span>
             <strong class="text-success">{{ $cmt->comment }}</strong>
+            <p class="date-cmt">{{ $cmt->created_at->format('d/m/Y') }}</p>
             <p></p>
         </div>
     </li>

@@ -61,10 +61,8 @@ Route::view('/art', 'dashboard.homeowner.pages.themesstyles.art');
 Route::view('/curtains-blinds', 'dashboard.homeowner.pages.themesstyles.curtains-blinds');
 
 Route::get('/product/{id}' , [ProductController::class , 'show'])->name('product.show');
+Route::get('/projectdetail', [ProjectController::class, 'show_comment'])->name('project.detail');
 Route::post('/project/comment', [ProjectController::class, 'post_comment'])->name('project.comment');
-Route::get('/projectdetail',[ProjectController::class] , 'show_comment');
-Route::get('/projectdetail', function () {
-    return view('dashboard.homeowner.pages.projectdetail');
-});
+
 
 require __DIR__.'/auth.php';
