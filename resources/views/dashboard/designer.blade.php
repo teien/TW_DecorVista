@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <title>about me profile - Bootdey.com</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
-
-
-        body {
-            margin-top: 80px;
-        }
+    <style >
         .card-box {
             background-color: #fff;
             background-clip: border-box;
@@ -250,38 +241,33 @@
             }
         }
     </style>
+    <title></title>
 
 </head>
 <body>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-
-
-
 <x-app-layout>
-<div class="container-fluid ">
-
+    @include('dashboard.homeowner.components.Topbar')
+    @include('dashboard.homeowner.components.navbar')
+</x-app-layout>
+<div class="container-fluid mt-5">
     <div class="row">
         <div class="col-lg-1 col-xl-1 "> </div>
         <div class="col-lg-3 col-xl-3 ">
             <div class="card-box text-center ">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
+                <img src="{{ asset($profile->profile_image_url) }}" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
                 <h4 class="mb-0">{{$userName }}</h4>
                 <h4 class="mb-0"></h4>
                 <p class="text-muted">@Designer</p>
                 <div class="text-left mt-3">
                     <h4 class="font-13 text-uppercase ">About Me :</h4>
                      {{$profile->bio ?? 'Please update your bio'}}
-
                     <p class="text-muted font-13 mb-3">
-
                     </p>
                     <p class="text-muted mb-2 font-13"><strong>Full Name :</strong> <span class="ml-2">{{$profile->first_name ?? '??'}} {{$profile->last_name ?? '??'}}</span></p>
                     <p class="text-muted mb-2 font-13"><strong>Mobile :</strong><span class="ml-2">{{$profile->contact_number ?? '??'}}</span></p>
                     <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ml-2 "><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6411170116240109050d084a000b09050d0a">{{$profile->contact_email ?? '??'}}</a></span></p>
                     <p class="text-muted mb-1 font-13"><strong>Company :</strong> <span class="ml-2">{{$profile->company_name ?? '??'}}</span></p>
                     <p class="text-muted mb-1 font-13"><strong>Website :</strong> <span class="ml-2">{{$profile->website_url?? '??'}}</span></p>
-
                 </div>
                 <ul class="social-list list-inline mt-3 mb-0">
                     <li class="list-inline-item">
@@ -352,7 +338,7 @@
                     </tbody>
 
                 </table>
-
+                <a href="{{ route('consultation.create', $profile->designer_id) }}" class="btn btn-primary">Make Appointment</a>
             </div>
 
 
@@ -381,7 +367,7 @@
                 @if ( (Auth::user()->interiorDesigner->designer_id ?? '')== ($profile->designer_id ?? 0) )
                 <div class="tab-content">
                     <div class="tab-pane" id="settings" href="#setting">
-                        <form method="POST" action="{{ route('update.profile') }}">
+                        <form method="POST" action="{{ route('update.profile') }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -401,6 +387,17 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="avatar">Choose Profile Picture</label>
+                                        <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
@@ -528,7 +525,7 @@
         </div>
     </div>
 </div>
-</x-app-layout>
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
@@ -574,4 +571,6 @@
 
 </script>
 </body>
+
 </html>
+

@@ -42,6 +42,14 @@ Route::middleware(['auth', 'role:InteriorDesigner'])->group(function () {
     Route::post('/dashboard/designer/{id}/consultation/complete', [ConsultationController::class, 'complete'])->name('designer.consultations.complete');
 
 });
+
+
+Route::get('/consultation/create/{designer_id}', [ConsultationController::class, 'create'])->name('consultation.create');
+Route::post('/consultation/store', [ConsultationController::class, 'store'])->name('consultation.store');
+Route::get('/schedule', [\App\Http\Controllers\UserController::class, 'view'])->name('schedule.view');
+Route::post('/user/{id}/consultation/reject', [\App\Http\Controllers\UserController::class, 'cancel'])->name('user.consultations.cancel');
+
+
 //check role admin thi moi vao duoc
 Route::middleware(['auth', 'role:Admin'])->group(function() {
     Route::get('/admin', [UserController::class, 'view'])->name('dashboard.admin');
@@ -58,7 +66,7 @@ Route::middleware(['auth', 'role:Admin'])->group(function() {
 // check giao diẹn info
 Route::view('/contact', 'dashboard.homeowner.pages.info.contact');
 Route::view('/about', 'dashboard.homeowner.pages.info.about');
-
+Route::get('/list/designer', [\App\Http\Controllers\UserController::class, 'show'])->name('designer.show');
 
 // check giao diẹn room
 Route::get('/products', [ProductController::class, 'index']);
