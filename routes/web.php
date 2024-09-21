@@ -4,19 +4,14 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\DesignerProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/productdetail', function () {
-    return view('dashboard.homeowner.pages.productdetail');
-});
 
-Route::get('/projectdetail', function () {
-    return view('dashboard.homeowner.pages.projectdetail');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -64,6 +59,7 @@ Route::view('/art', 'dashboard.homeowner.pages.themesstyles.art');
 Route::view('/curtains-blinds', 'dashboard.homeowner.pages.themesstyles.curtains-blinds');
 
 Route::get('/product/{id}' , [ProductController::class , 'show'])->name('product.show');
-
+Route::post('/project/comment', [ProjectController::class, 'post_comment'])->name('project.comment');
+Route::get('/projectdetail',[ProjectController::class] , 'show_project');
 
 require __DIR__.'/auth.php';

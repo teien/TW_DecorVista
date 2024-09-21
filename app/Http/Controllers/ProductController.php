@@ -17,4 +17,6 @@ class ProductController extends Controller
         
          return view('dashboard.homeowner.pages.productdetail',compact('product' , 'relatedProduct'));
     }
+
+    
 }
