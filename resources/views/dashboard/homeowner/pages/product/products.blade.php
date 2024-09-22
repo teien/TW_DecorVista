@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1 class="text-center mt-5 text-secondary">Bath Room</h1>
-    <div id="alertContainer" style="position: fixed; top: 180px; left: 80%; transform: translateX(-50%); z-index: 1050;"></div> 
+    <div id="alertContainer" style="position: fixed; top: 180px; left: 80%; transform: translateX(-50%); z-index: 1050;"></div>
 
     <div class="row">
         <!-- Cột bộ lọc sản phẩm -->
@@ -62,7 +62,7 @@
 </div>
 
 <script>
-let alertQueue = []; 
+let alertQueue = [];
 let isAlertShowing = false;
 
 function showAlert(type, message) {
@@ -71,10 +71,10 @@ function showAlert(type, message) {
 }
 
 function showNextAlert() {
-    if (isAlertShowing || alertQueue.length === 0) return; 
+    if (isAlertShowing || alertQueue.length === 0) return;
 
-    const { type, message } = alertQueue.shift(); 
-    isAlertShowing = true; 
+    const { type, message } = alertQueue.shift();
+    isAlertShowing = true;
 
     const alert = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
         ${message}
@@ -87,10 +87,10 @@ function showNextAlert() {
             alerts[0].classList.remove('show');
             alerts[0].classList.add('fade');
             setTimeout(() => {
-                alerts[0].remove(); 
-                isAlertShowing = false; 
-                showNextAlert(); 
-            }, 500); 
+                alerts[0].remove();
+                isAlertShowing = false;
+                showNextAlert();
+            }, 500);
         }
     }, 1000);
 }
@@ -123,7 +123,7 @@ function addToCart(productId) {
         if (data.error) {
             showAlert('success', data.message || 'Có lỗi xảy ra, vui lòng thử lại.');
         } else {
-            showAlert('success', 'Đã thêm vào giỏ hàng thành công!'); 
+            showAlert('success', 'Đã thêm vào giỏ hàng thành công!');
         }
     })
     .catch(error => {

@@ -110,6 +110,8 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('products
 
 
 
+Route::get('/products/filter', [ProductController::class, 'filter'])->name('products.filter');
+
 
 
 require __DIR__ . '/auth.php';
